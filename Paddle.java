@@ -2,7 +2,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
-public class Padd;e {
+public class Paddle {
 	private static final int Y = 330;
 	private static final int w = 60;
 	private static final int h = 10;
