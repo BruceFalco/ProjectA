@@ -4,9 +4,9 @@ import java.awt.event.KeyEvent;
 
 public class Paddle {
 	private static final int Y = 330;
-	private static final int w = 60;
+	private static final int w = 100;
 	private static final int h = 10;
-	int x = 0;
+	int x = 10;
 	int xa = 0;
 	private Game game;
 

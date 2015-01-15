@@ -12,6 +12,7 @@ public class Game extends JPanel {
 
 	Ball ball = new Ball(this);
 	Paddle paddle = new Paddle(this);
+	Brick brick = new Brick(this);
 
 	public Game() {
 		addKeyListener(new KeyListener() {
@@ -45,6 +46,7 @@ public class Game extends JPanel {
 		RenderingHints.VALUE_ANTIALIAS_ON);
 		ball.paint(g2d);
 		paddle.paint(g2d);
+		brick.paint(g2d);
 	}
 	
 	public void gameOver() {

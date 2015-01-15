@@ -7,6 +7,7 @@ public class Ball {
 	int y = 0;
 	int xa = 1;
 	int ya = 1;
+	int dummy=0;
 	private Game game;
 
 	public Ball(Game game) {
@@ -28,6 +29,9 @@ public class Ball {
 		}
 		x = x + xa;
 		y = y + ya;
+		if (brickdestroy()){
+			dummy=5;
+		}
 	}
 
 	private boolean collision() {
@@ -40,5 +44,9 @@ public class Ball {
 	
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, diam, diam);
+	}
+
+	private boolean brickdestroy() {
+		return game.brick.getBounds().intersects(getBounds());
 	}
 }
