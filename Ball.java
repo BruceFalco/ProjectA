@@ -30,7 +30,7 @@ public class Ball {
 		x = x + xa;
 		y = y + ya;
 		if (brickdestroy()){
-			dummy=5;
+			game.brick.setwh();
 		}
 	}
 

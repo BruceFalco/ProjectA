@@ -3,9 +3,9 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 public class Brick {
-	private static final int Y = 330;
-	private static final int w = 50;
-	private static final int h = 100;
+	private int Y = 0;
+	private int w = 100;
+	private int h = 40;
 	int x = 250;
 	int xa = 0;
 	private Game game;
@@ -26,6 +26,9 @@ public class Brick {
 	public int getTopY() {
 		return Y;
 	}
-
-
+	
+	public void setwh(){
+		w = 0;
+		h=0;
+	}
 }
