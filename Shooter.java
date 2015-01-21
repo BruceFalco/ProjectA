@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 public class Shooter extends JPanel {
 
     // spaceship class
+    Spaceship spaceship = new Spaceship(this);
     // asteroid class - several asteroids
     // bullet class?
 
@@ -50,6 +51,8 @@ public class Shooter extends JPanel {
 	   figures */
 
 	// paint all the necessary figures on the canvas;
+	spaceship.paint(g2d);
+	
     }
 
     public void gameOver() {
@@ -73,9 +76,9 @@ public class Shooter extends JPanel {
 
     public static void main(String[] args) throws InterruptedException {
 	JFrame frame = new JFrame("Asteroid Shooter");
-	Game game = new Game();
-	frame.add(game);
-	frame.setSize(500,400);
+	Shooter shooter  = new Shooter();
+	frame.add(shooter);
+	frame.setSize(600,500);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
