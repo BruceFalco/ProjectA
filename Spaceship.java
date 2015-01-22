@@ -6,12 +6,14 @@ public class Spaceship {
     //    private static final int 
 
 
-    int x = 250;
+    int x = 25;
     int xa= 0;
     // movement left negative, movement right positive;
-    int y = 50;
+    int y = 25;
     int ya= 0;
     // movement up negative, movement down positive;
+    private static final int w = 45;
+    private static final int h = 35;
 
 
     private Shooter shooter;
@@ -23,27 +25,65 @@ public class Spaceship {
     }
 
     public void move() {
-	//moving stuff 
+	if (x + xa > 0 && x + xa < shooter.getWidth() - w) {
+	    x = x + xa;
+	    // if not out of bounds, move;
+	}
+	if (y + ya > 0 && y + ya < shooter.getHeight() - h) {
+	    y = y + ya;
+	}
     }
 
+
     public void paint(Graphics2D g) {
-	int xpoints[] = {25, 145, 25, 145, 25};
-	int ypoints[] = {25, 25, 145, 145, 25};
-	int npoints = 5;
+	int xpoints[] = {x,25+w, x};
+	int ypoints[] = {y, y+(h/2), y+h};
+	int npoints = 3;
 	
 	g.fillPolygon(xpoints, ypoints, npoints);
     }
 
     public void keyReleased(KeyEvent e) {
-	//stop moving, or maybe drift?
+	// drift?
     }
 
     public void keyPressed(KeyEvent e) {
+	int kii =  e.getKeyCode();
+	if (kii == KeyEvent.VK_LEFT) {
+	    xa = xa - 2;
+	}
+	if (kii == KeyEvent.VK_RIGHT) {
+	    xa = xa + 2;
+	}
+	if (kii == KeyEvent.VK_UP) {
+	    ya = ya - 2;
+	}
+	if (kii == KeyEvent.VK_DOWN) {
+	    ya = ya + 2;
+	}
+ 
 	// left, right, up, down
     }
 
     // method for getting polygon coordinates?
-
+    // method for shooting!
     //method for keeping track of points/ asteroids destroyed
+
+    public int getX() {
+	return x;
+	// x location
+    }
+    public int getY() {
+	return y;
+	// y location
+    }
+    public int getH() {
+	return h;
+	// get height of ship
+    }
+    public int getW() {
+	return w;
+	// get width of ship
+    }
 
 }

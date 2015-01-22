@@ -23,11 +23,11 @@ public class Shooter extends JPanel {
 
 
 		public void keyReleased(KeyEvent e) {
-		// stop firing when key released?
+		    spaceship.keyReleased(e);
 		}
 
 		public void keyPressed(KeyEvent e) {
-		    // moving mechanism?
+		    spaceship.keyReleased(e);
 		}
 	    });
 	setFocusable(true);
@@ -36,6 +36,7 @@ public class Shooter extends JPanel {
     private void move() {
 	// asteroids must move;
 	// spaceship must be allowed to move;
+	spaceship.move();
 	// if we got bullets, dey gotta mooove
     }
 
@@ -78,7 +79,7 @@ public class Shooter extends JPanel {
 	JFrame frame = new JFrame("Asteroid Shooter");
 	Shooter shooter  = new Shooter();
 	frame.add(shooter);
-	frame.setSize(600,500);
+	frame.setSize(800,400);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -87,6 +88,8 @@ public class Shooter extends JPanel {
 	while (true) {
 	    // game must continuously move and allow its figures to as well;
 	    // game must constantly repaint;
+	    shooter.move();
+	    shooter.repaint();
 
 	    Thread.sleep(7);
 	}
