@@ -77,6 +77,9 @@ public class Shooter extends JPanel {
         if (bulletever) {
             bullet.move();
         }
+	if (bullet.getX() > getWidth()) {
+	    bulletever = false;
+	}
 	//ONCE THE BULLET IS OFF SCREEN, YOU HAVE TO SET BULLETEVER BACK TO FALSE(I THINK, YOU KNOW BETTER THAN I)  CHECK IF THE BULLET IS OFF SCREEN, AND IF IT IS, THEN SET IT BACK TO ITS ORGINAL SETTINGS TO ALLOW FOR ANOTHER SHOT. ITS PROBABLY FINE TO ONLY HAVE ONE SHOT ONSCREEN AT A TIME.
         // if we got bullets, dey gotta mooove                                           
     }
