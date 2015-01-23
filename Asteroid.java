@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.*;
 
 public class Asteroid {
-    int x = 0;
+    int x = 1000;
     int xa = -1;
 
     int y = 500-randInt(0,500);

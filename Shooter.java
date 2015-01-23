@@ -15,6 +15,13 @@ public class Shooter extends JPanel {
     boolean pew = false;
     // asteroid class - several asteroids
 
+
+    // !!!! while (int i = 0; i < 10; 
+    Asteroid a1,a2 = new Asteroid(this);
+    
+    boolean astermove = false;
+    // asteroids don't move until first key pressed
+
     public Shooter() {
 
 	addKeyListener(new KeyListener() {
@@ -27,6 +34,8 @@ public class Shooter extends JPanel {
 
 		public void keyPressed(KeyEvent e) {
 		    spaceship.keyPressed(e);
+		    astermove = true;
+		    
 		}
 	    });
 	setFocusable(true);
@@ -47,6 +56,9 @@ public class Shooter extends JPanel {
 	// paint all the necessary figures on the canvas;
 	spaceship.paint(g2d);
 	
+	a1.paint(g2d);
+	a2.paint(g2d);
+	
 	if (pew) {
 	    spaceship.bullet.paint(g2d);
 	}
@@ -56,6 +68,12 @@ public class Shooter extends JPanel {
 
     private void move() {
 	spaceship.move();
+	
+	if (astermove == true) {	    
+	    a1.move();
+	    a2.move();
+	}
+
 	if (pew) {
 	    spaceship.bullet.move();
 	}
@@ -73,7 +91,7 @@ public class Shooter extends JPanel {
 	
 
 	//custom button
-	Object[] options = {"Close window","Play again"};
+	/*	Object[] options = {"Close window","Play again"};
 	JOptionPane.showOptionDialog(this, "You fought valiantly."
 				   ,
 				     "Game Over",
@@ -81,11 +99,17 @@ public class Shooter extends JPanel {
 				     JOptionPane.QUESTION_MESSAGE,
 				     null,
 				     options,
-				     options[2]);
+				     options[2]);*/
+
+	
+	JOptionPane.showMessageDialog(this, "Game Over", "Game Over", 
+				      JOptionPane.YES_NO_OPTION);
+	System.exit(ABORT);
+    }
 
 	//no exit upon losing; manual exit unlike Pong game
 
-    }
+   
 
     public static void main(String[] args) throws InterruptedException {
 	JFrame frame = new JFrame("Drifter");
@@ -111,7 +135,7 @@ public class Shooter extends JPanel {
 
 
 /* ought to
-   - test out gameOver();
-    - finish this, obviously. needa make the other classes and paint them, fill
-   in necessary lines
+   - line 19, make more asteroids
+   - make bullets work
+   - optional : make shield work
 */
