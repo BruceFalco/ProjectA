@@ -4,8 +4,8 @@ import java.awt.event.KeyEvent;
 
 public class Paddle3 {
     private static final int Y = 50;
-    private static final int w = 60;
-    private static final int h = 10;
+    private static final int w = 100;
+    private static final int h = 20;
     // size of paddle
     int x = 220;
     int Score = 0;
@@ -36,10 +36,10 @@ public class Paddle3 {
     
     public void keyPressed2(KeyEvent r) {
 	if (r.getKeyCode() == KeyEvent.VK_LEFT){
-	    xa = -3;
+	    xa = -4;
 	}
 	if (r.getKeyCode() == KeyEvent.VK_RIGHT){
-	    xa = 3;
+	    xa = 4;
 	}
 	// KeyEvent e, specifically when left or right key is pressed
 	// changes xa, direction of paddle

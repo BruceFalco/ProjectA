@@ -74,7 +74,7 @@ public class Game2 extends JPanel {
 		JFrame frame = new JFrame("Games!");
 		Game2 game2 = new Game2();
 		frame.add(game2);
-		frame.setSize(600, 400);
+		frame.setSize(700, 500);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

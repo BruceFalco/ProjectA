@@ -3,9 +3,9 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
 public class Paddle2 {
-    private static final int Y = 300;
-    private static final int w = 60;
-    private static final int h = 10;
+    private static final int Y = 400;
+    private static final int w = 100;
+    private static final int h = 20;
     // size of paddle
     int x = 220;
     // horizontal location
@@ -35,10 +35,10 @@ public class Paddle2 {
     
     public void keyPressed(KeyEvent e) {
 	if (e.getKeyCode() == KeyEvent.VK_A){
-	    xa = -3;
+	    xa = -4;
 	}
 	if (e.getKeyCode() == KeyEvent.VK_D){
-	    xa = 3;
+	    xa = 4;
 	}
 	// KeyEvent e, specifically when left or right key is pressed
 	// changes xa, direction of paddle
