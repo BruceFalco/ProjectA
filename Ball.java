@@ -27,11 +27,23 @@ public class Ball {
 			ya = -1;
 			y = game.paddle.getTopY() - diam;
 		}
+		if (brickdestroy()){
+			//IF ball intersects bounds of given brick , kill that Brick.
+			if (game.brick.getBounds().intersects(getBounds())){
+				game.brick.setwh();
+			}
+			if (game.brick2.getBounds().intersects(getBounds())){
+				game.brick2.setwh();
+			}
+			if (game.brick3.getBounds().intersects(getBounds())){
+				game.brick3.setwh();
+			}
+			ya=(-1*ya);
+			y=40;
+		}
 		x = x + xa;
 		y = y + ya;
-		if (brickdestroy()){
-			game.brick.setwh();
-		}
+		
 	}
 
 	private boolean collision() {
@@ -47,6 +59,6 @@ public class Ball {
 	}
 
 	private boolean brickdestroy() {
-		return game.brick.getBounds().intersects(getBounds());
+		return game.brick.getBounds().intersects(getBounds()) || game.brick2.getBounds().intersects(getBounds())|| game.brick3.getBounds().intersects(getBounds());
 	}
 }

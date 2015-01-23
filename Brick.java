@@ -1,12 +1,12 @@
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-
+import java.util.*;
 public class Brick {
 	private int Y = 0;
-	private int w = 100;
+	private int w = 50;
 	private int h = 40;
-	int x = 250;
+	int x = 900-randInt(0,900);
 	int xa = 0;
 	private Game game;
 
@@ -27,8 +27,18 @@ public class Brick {
 		return Y;
 	}
 	
+	public int getBottomY() {
+		return (Y-40);
+	}
+
 	public void setwh(){
 		w = 0;
 		h=0;
 	}
+
+	public static int randInt(int min, int max) {
+    		Random rand = new Random();
+    		int randomNum = rand.nextInt((max - min) + 1) + min;
+    		return randomNum;
+}
 }
