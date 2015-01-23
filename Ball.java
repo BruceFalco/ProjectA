@@ -6,7 +6,7 @@ public class Ball {
 	int x = 0;
 	int y = 0;
 	int xa = 1;
-	int ya = 1;
+	int ya = 2;
 	int dummy=0;
 	private Game game;
 
@@ -20,29 +20,34 @@ public class Ball {
 		if (x + xa > game.getWidth() - diam)
 			xa = -1;
 		if (y + ya < 0)
-			ya = 1;
+			ya = 2;
 		if (y + ya > game.getHeight() - diam)
 			game.gameOver();
 		if (collision()){
-			ya = -1;
+			ya = -2;
 			y = game.paddle.getTopY() - diam;
 		}
 		if (brickdestroy()){
 			//IF ball intersects bounds of given brick , kill that Brick.
 			if (game.brick.getBounds().intersects(getBounds())){
 				game.brick.setwh();
+				y=game.brick.getBottomY()+diam;
 			}
 			if (game.brick2.getBounds().intersects(getBounds())){
 				game.brick2.setwh();
+				y=game.brick2.getBottomY()+diam;
 			}
 			if (game.brick3.getBounds().intersects(getBounds())){
 				game.brick3.setwh();
+				y=game.brick3.getBottomY()+diam;
 			}
 			ya=(-1*ya);
-			y=40;
+			
 		}
 		x = x + xa;
 		y = y + ya;
+		
+			
 		
 	}
 

@@ -37,6 +37,10 @@ public class Game extends JPanel {
 	private void move() {
 		ball.move();
 		paddle.move();
+		if ((brick.getW()==0)&&(brick2.getW()==0)&&(brick3.getW()==0)){
+			gameWin();
+		}
+			
 	}
 
 	
@@ -48,7 +52,11 @@ public class Game extends JPanel {
 		ball.paint(g2d);
 		paddle.paint(g2d);
 		brick.paint(g2d);
+		//brick2.setY(50);
+		//brick2.setX(40);
 		brick2.paint(g2d);
+		//brick3.setY(50);
+		//brick3.setX(40);
 		brick3.paint(g2d);
 		
 	}
@@ -58,11 +66,15 @@ public class Game extends JPanel {
 		System.exit(ABORT);
 	}
 
+	public void gameWin() {
+		JOptionPane.showMessageDialog(this, "You Win!", "You Win", JOptionPane.YES_NO_OPTION);
+		System.exit(ABORT);
+	}
 	public static void main(String[] args) throws InterruptedException {
 		JFrame frame = new JFrame("Games!");
 		Game game = new Game();
 		frame.add(game);
-		frame.setSize(600, 400);
+		frame.setSize(700, 500);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -70,6 +82,7 @@ public class Game extends JPanel {
 			game.move();
 			game.repaint();
 			Thread.sleep(7);
+			
 		}
 	}
 }
