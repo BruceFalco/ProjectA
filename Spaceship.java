@@ -2,10 +2,6 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 public class Spaceship {
-    //   private static final int w = 100;
-    //    private static final int 
-
-
     int x = 25;
     int xa= 0;
     // movement left negative, movement right positive;
@@ -14,7 +10,9 @@ public class Spaceship {
     // movement up negative, movement down positive;
     private static final int w = 45;
     private static final int h = 35;
-
+    
+    boolean shieldup = false;
+    // for shield
 
     private Shooter shooter;
     // dimensions of app
@@ -41,10 +39,25 @@ public class Spaceship {
 	int npoints = 3;
 	
 	g.fillPolygon(xpoints, ypoints, npoints);
+	if (shieldup == true) {
+	    g.drawOval(x-10,y-10,w+20,h+20);
+	    // shield;
+	}
     }
 
+    public void keyTyped(KeyEvent e) {
+	//	if (e.getKeyChar() == 'x' && shieldup == false) {
+	//  shooter.shoot();
+	    // can only shoot if shields are down
+    }
+    
+
     public void keyReleased(KeyEvent e) {
-	// drift?
+	// drift
+	int kii = e.getKeyCode();
+	if (kii == KeyEvent.VK_C) {
+	    shieldup= false;
+	}
     }
 
     public void keyPressed(KeyEvent e) {
@@ -73,8 +86,10 @@ public class Spaceship {
 		ya = ya +1;
 	    }
 	}
- 
 	// left, right, up, down
+	if (kii == KeyEvent.VK_C) {
+	    shieldup = true;
+	}
     }
 
     // method for getting polygon coordinates?
@@ -97,5 +112,10 @@ public class Spaceship {
 	return w;
 	// get width of ship
     }
+    public int getXA() {
+	return xa;
+	// get velocity;
+    }
+
 
 }

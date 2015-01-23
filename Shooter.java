@@ -11,6 +11,9 @@ public class Shooter extends JPanel {
 
     // spaceship class
     Spaceship spaceship = new Spaceship(this);
+    Bullet bullet = new Bullet(spaceship);
+    boolean shooty = false;
+    boolean bulletever = false;
     // asteroid class - several asteroids
     // bullet class?
 
@@ -22,7 +25,10 @@ public class Shooter extends JPanel {
 	addKeyListener(new KeyListener() {
 		
 		public void keyTyped(KeyEvent e) {
-		  
+		    if (e.getKeyChar() == 'x') {
+			Bullet bullet = new Bullet(spaceship);
+			bulletever=true;
+		    }
 		}
 
 
@@ -37,17 +43,17 @@ public class Shooter extends JPanel {
 	setFocusable(true);
     }
 
-    private void move() {
-	// asteroids must move;
-	// spaceship must be allowed to move;
-	spaceship.move();
-	// if we got bullets, dey gotta mooove
+    /*    if (shooty == true) {
+	Bullet bullet = new Bullet(spaceship);
+	shooty = false;
+	bulletever = true;
     }
+    */
 
-    
+
     public void paint(Graphics g) {
-	super.paint(g);
 	Graphics2D g2d = (Graphics2D) g;
+	super.paint(g);
 	g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 			     RenderingHints.VALUE_ANTIALIAS_ON);
 	// renderinghints is an attribute of Graphics2D
@@ -58,7 +64,21 @@ public class Shooter extends JPanel {
 	// paint all the necessary figures on the canvas;
 	spaceship.paint(g2d);
 	
+	if (bulletever) {
+	    bullet.paint(g2d);
+	}
     }
+
+
+    private void move() {
+        // asteroids must move;                                                                 // spaceship must be allowed to move;                                            
+        spaceship.move();
+        if (bulletever) {
+            bullet.move();
+        }
+        // if we got bullets, dey gotta mooove                                           
+    }
+    
 
     public void gameOver() {
 	//	JOptionPane.showMessageDialog(this,"Game Over","Game Over");
