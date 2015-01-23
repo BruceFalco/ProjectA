@@ -36,7 +36,7 @@ public class Spaceship {
 
 
     public void paint(Graphics2D g) {
-	int xpoints[] = {x,25+w, x};
+	int xpoints[] = {x,x+w, x};
 	int ypoints[] = {y, y+(h/2), y+h};
 	int npoints = 3;
 	
@@ -50,16 +50,28 @@ public class Spaceship {
     public void keyPressed(KeyEvent e) {
 	int kii =  e.getKeyCode();
 	if (kii == KeyEvent.VK_LEFT) {
-	    xa = xa - 2;
+	    xa = xa - 1;
+	    if (xa == 0) {
+		xa = xa -1 ;
+	    }
 	}
 	if (kii == KeyEvent.VK_RIGHT) {
-	    xa = xa + 2;
+	    xa = xa + 1;
+	    if (xa == 0) {
+		xa = xa +1;
+	    }
 	}
 	if (kii == KeyEvent.VK_UP) {
-	    ya = ya - 2;
+	    ya = ya - 1;
+	    if (ya == 0) {
+		ya = ya - 1;
+	    }
 	}
 	if (kii == KeyEvent.VK_DOWN) {
-	    ya = ya + 2;
+	    ya = ya + 1;
+	    if (ya == 0) {
+		ya = ya +1;
+	    }
 	}
  
 	// left, right, up, down

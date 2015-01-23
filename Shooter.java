@@ -14,11 +14,15 @@ public class Shooter extends JPanel {
     // asteroid class - several asteroids
     // bullet class?
 
+    // static boolean ongoing = true;
+    //handles pauses, nvm doesn't work
+
     public Shooter() {
+
 	addKeyListener(new KeyListener() {
 		
 		public void keyTyped(KeyEvent e) {
-		    // firing mechanism here?
+		  
 		}
 
 
@@ -27,7 +31,7 @@ public class Shooter extends JPanel {
 		}
 
 		public void keyPressed(KeyEvent e) {
-		    spaceship.keyReleased(e);
+		    spaceship.keyPressed(e);
 		}
 	    });
 	setFocusable(true);
@@ -79,7 +83,7 @@ public class Shooter extends JPanel {
 	JFrame frame = new JFrame("Asteroid Shooter");
 	Shooter shooter  = new Shooter();
 	frame.add(shooter);
-	frame.setSize(800,400);
+	frame.setSize(1000,500);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -100,8 +104,6 @@ public class Shooter extends JPanel {
 
 /* ought to
    - test out gameOver();
-   - check out why do shapes from Pong appear automatically when opening up
-   unfinished game?;
-   - finish this, obviously. needa make the other classes and paint them, fill
+    - finish this, obviously. needa make the other classes and paint them, fill
    in necessary lines
 */
