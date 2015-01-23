@@ -68,11 +68,30 @@ public class Shooter extends JPanel {
 	if (bulletever) {
 	    bullet.paint(g2d);
 	}
+
+	//	Asteroid a1 = new Asteroid(shooter);
+	//       Asteroid a2 = new Asteroid(shooter);
+	// Asteroid a3 = new Asteroid(shooter);
+	//        Asteroid a4 = new Asteroid(shooter);
+	//	a1.paint();
+	//	a2.paint();
+	//	a3.paint();
+	//	a4.paint();
     }
 
 
     private void move() {
         // asteroids must move;                                                                 // spaceship must be allowed to move;                                            
+	//	Asteroid a1 = new Asteroid(this);
+	//	Asteroid a2 = new Asteroid(this);
+	//	Asteroid a3 = new Asteroid(this);
+	//	Asteroid a4 = new Asteroid(this);
+	/*
+	a1.move();
+	a2.move();
+	a3.move();
+	a4.move();
+	*/
         spaceship.move();
         if (bulletever) {
             bullet.move();
@@ -91,8 +110,8 @@ public class Shooter extends JPanel {
 
 	//custom button
 	Object[] options = {"Close window","Play again"};
-	JOptionPane.showOptionDialog(this, "You fought valiantly." +
-				     " Your score was __",
+	JOptionPane.showOptionDialog(this, "You fought valiantly."
+				   ,
 				     "Game Over",
 				     JOptionPane.YES_NO_CANCEL_OPTION,
 				     JOptionPane.QUESTION_MESSAGE,
@@ -105,7 +124,7 @@ public class Shooter extends JPanel {
     }
 
     public static void main(String[] args) throws InterruptedException {
-	JFrame frame = new JFrame("Asteroid Shooter");
+	JFrame frame = new JFrame("Drifter");
 	Shooter shooter  = new Shooter();
 	frame.add(shooter);
 	frame.setSize(1000,500);
@@ -119,7 +138,6 @@ public class Shooter extends JPanel {
 	    // game must constantly repaint;
 	    shooter.move();
 	    shooter.repaint();
-
 	    Thread.sleep(7);
 	    
 	}

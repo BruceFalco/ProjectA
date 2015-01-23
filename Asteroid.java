@@ -14,11 +14,16 @@ public class Asteroid {
     private Shooter shooter;
 
     public Asteroid(Shooter shooter) {
-	this.game = game;
+	this.shooter = shooter;
     }
 
     public void paint(Graphics2D g) {
 	g.fillRect(x,y,w,h);
+    }
+    
+    public void move() {
+	x = x + xa;
+	destroy();
     }
 
     public Rectangle getBounds() {
@@ -29,6 +34,12 @@ public class Asteroid {
 	Random rand = new Random();
 	int randomNum = rand.nextInt((max-min) +1) + min;
 	return randomNum;
+    }
+
+    private void destroy() {
+	if (shooter.spaceship.shieldup == false && shooter.spaceship.getBounds().intersects(getBounds())) {
+	    shooter.gameOver();
+	}
     }
 
 }

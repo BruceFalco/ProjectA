@@ -1,5 +1,7 @@
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.awt.Rectangle;
+
 
 public class Spaceship {
     int x = 25;
@@ -96,6 +98,7 @@ public class Spaceship {
     // method for shooting!
     //method for keeping track of points/ asteroids destroyed
 
+  
     public int getX() {
 	return x;
 	// x location
@@ -117,5 +120,8 @@ public class Spaceship {
 	// get velocity;
     }
 
+    public Rectangle getBounds() {
+	return new Rectangle(x,y,w,h);
+    }
 
 }
