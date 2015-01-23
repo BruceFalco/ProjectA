@@ -12,6 +12,7 @@ public class Spaceship {
     // movement up negative, movement down positive;
     private static final int w = 45;
     private static final int h = 35;
+    Bullet bullet = new Bullet(this);
     
     boolean shieldup = false;
     // for shield
@@ -48,9 +49,6 @@ public class Spaceship {
     }
 
     public void keyTyped(KeyEvent e) {
-	//	if (e.getKeyChar() == 'x' && shieldup == false) {
-	//  shooter.shoot();
-	    // can only shoot if shields are down
     }
     
 
@@ -91,6 +89,10 @@ public class Spaceship {
 	// left, right, up, down
 	if (kii == KeyEvent.VK_C) {
 	    shieldup = true;
+	}
+	if (kii == KeyEvent.VK_X) {
+	    Bullet bullet = new Bullet(this);
+	    shooter.pew = true;
 	}
     }
 

@@ -17,6 +17,7 @@ public class Bullet {
     public Bullet(Spaceship spaceship) {
 	this.spaceship = spaceship;
 	int ssxa = spaceship.getXA();
+	// velocity of spaceship
 	if (ssxa < 0) {
 	    xa = 4;
 	}

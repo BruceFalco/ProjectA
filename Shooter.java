@@ -12,26 +12,14 @@ public class Shooter extends JPanel {
     // spaceship class
     Spaceship spaceship = new Spaceship(this);
     Bullet bullet = new Bullet(spaceship);
-    boolean shooty = false;
-    boolean bulletever = false;
+    boolean pew = false;
     // asteroid class - several asteroids
-    // bullet class?
-
-    // static boolean ongoing = true;
-    //handles pauses, nvm doesn't work
 
     public Shooter() {
 
 	addKeyListener(new KeyListener() {
-		
-		public void keyTyped(KeyEvent e) {
-		    if (e.getKeyChar() == 'x') {
-			Bullet bullet = new Bullet(spaceship);
-			bulletever=true;
-			
-		    }
+		public void keyTyped(KeyEvent e) {	
 		}
-
 
 		public void keyReleased(KeyEvent e) {
 		    spaceship.keyReleased(e);
@@ -44,12 +32,6 @@ public class Shooter extends JPanel {
 	setFocusable(true);
     }
 
-    /*    if (shooty == true) {
-	Bullet bullet = new Bullet(spaceship);
-	shooty = false;
-	bulletever = true;
-    }
-    */
 
 
     public void paint(Graphics g) {
@@ -65,40 +47,22 @@ public class Shooter extends JPanel {
 	// paint all the necessary figures on the canvas;
 	spaceship.paint(g2d);
 	
-	if (bulletever) {
-	    bullet.paint(g2d);
+	if (pew) {
+	    spaceship.bullet.paint(g2d);
 	}
 
-	//	Asteroid a1 = new Asteroid(shooter);
-	//       Asteroid a2 = new Asteroid(shooter);
-	// Asteroid a3 = new Asteroid(shooter);
-	//        Asteroid a4 = new Asteroid(shooter);
-	//	a1.paint();
-	//	a2.paint();
-	//	a3.paint();
-	//	a4.paint();
     }
 
 
     private void move() {
-        // asteroids must move;                                                                 // spaceship must be allowed to move;                                            
-	//	Asteroid a1 = new Asteroid(this);
-	//	Asteroid a2 = new Asteroid(this);
-	//	Asteroid a3 = new Asteroid(this);
-	//	Asteroid a4 = new Asteroid(this);
-	/*
-	a1.move();
-	a2.move();
-	a3.move();
-	a4.move();
-	*/
-        spaceship.move();
-        if (bulletever) {
-            bullet.move();
-        }
-	if (bullet.getX() > getWidth()) {
-	    bulletever = false;
+	spaceship.move();
+	if (pew) {
+	    spaceship.bullet.move();
 	}
+	if (spaceship.bullet.getX() > getWidth()) {
+	    pew = false;
+	}
+	    
 	//ONCE THE BULLET IS OFF SCREEN, YOU HAVE TO SET BULLETEVER BACK TO FALSE(I THINK, YOU KNOW BETTER THAN I)  CHECK IF THE BULLET IS OFF SCREEN, AND IF IT IS, THEN SET IT BACK TO ITS ORGINAL SETTINGS TO ALLOW FOR ANOTHER SHOT. ITS PROBABLY FINE TO ONLY HAVE ONE SHOT ONSCREEN AT A TIME.
         // if we got bullets, dey gotta mooove                                           
     }
