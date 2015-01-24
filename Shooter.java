@@ -17,7 +17,8 @@ public class Shooter extends JPanel {
 
 
     // !!!! while (int i = 0; i < 10; 
-    Asteroid a1,a2 = new Asteroid(this);
+    Asteroid a1 = new Asteroid(this);
+    Asteroid a2 = new Asteroid(this);
     
     boolean astermove = false;
     // asteroids don't move until first key pressed
@@ -87,20 +88,6 @@ public class Shooter extends JPanel {
     
 
     public void gameOver() {
-	//	JOptionPane.showMessageDialog(this,"Game Over","Game Over");
-	
-
-	//custom button
-	/*	Object[] options = {"Close window","Play again"};
-	JOptionPane.showOptionDialog(this, "You fought valiantly."
-				   ,
-				     "Game Over",
-				     JOptionPane.YES_NO_CANCEL_OPTION,
-				     JOptionPane.QUESTION_MESSAGE,
-				     null,
-				     options,
-				     options[2]);*/
-
 	
 	JOptionPane.showMessageDialog(this, "Game Over", "Game Over", 
 				      JOptionPane.YES_NO_OPTION);
