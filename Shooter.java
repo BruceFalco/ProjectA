@@ -14,11 +14,20 @@ public class Shooter extends JPanel {
     Bullet bullet = new Bullet(spaceship);
     boolean pew = false;
     // asteroid class - several asteroids
+  
 
 
-    // !!!! while (int i = 0; i < 10; 
     Asteroid a1 = new Asteroid(this);
     Asteroid a2 = new Asteroid(this);
+    Asteroid a3 = new Asteroid(this);
+    Asteroid a4 = new Asteroid(this);
+    Asteroid a5 = new Asteroid(this);
+    Asteroid a6 = new Asteroid(this);
+    Asteroid a7 = new Asteroid(this);
+    Asteroid a8 = new Asteroid(this);
+    Asteroid[]  asters = {a1,a2,a3,a4,a5,a6,a7,a8};
+    
+
     
     boolean astermove = false;
     // asteroids don't move until first key pressed
@@ -57,13 +66,26 @@ public class Shooter extends JPanel {
 	// paint all the necessary figures on the canvas;
 	spaceship.paint(g2d);
 	
-	a1.paint(g2d);
-	a2.paint(g2d);
 	
+	for (int i = 0; i < asters.length ; i ++ ) {
+	    asters[i].paint(g2d);
+	}
+	
+		
+
 	if (pew) {
 	    spaceship.bullet.paint(g2d);
 	}
 
+    }
+
+    private void anew() {
+	if (asters[asters.length-1].flatt == true) {
+	    for (int i = 0 ; i < asters.length; i++) {
+		asters[i] = new Asteroid(this);
+	    }
+           	    
+        }
     }
 
 
@@ -71,9 +93,25 @@ public class Shooter extends JPanel {
 	spaceship.move();
 	
 	if (astermove == true) {	    
-	    a1.move();
-	    a2.move();
+	    for (int i = 0; i < asters.length ; i++) {
+		asters[i].move();
+	    }
 	}
+	
+	/*    
+	if (asters[asters.length-1].flatt == true) {
+	    Asteroid a1 = new Asteroid(this);
+	    Asteroid a2 = new Asteroid(this);
+	    Asteroid a3 = new Asteroid(this);
+	    Asteroid a4 = new Asteroid(this);
+	    Asteroid a5 = new Asteroid(this);
+	    Asteroid a6 = new Asteroid(this);
+	    Asteroid a7 = new Asteroid(this);
+	    Asteroid a8 = new Asteroid(this);
+	    Asteroid[]  asters = {a1,a2,a3,a4,a5,a6,a7,a8};
+
+	}
+*/
 
 	if (pew) {
 	    spaceship.bullet.move();
@@ -113,6 +151,7 @@ public class Shooter extends JPanel {
 	    // game must constantly repaint;
 	    shooter.move();
 	    shooter.repaint();
+	    shooter.anew();
 	    Thread.sleep(7);
 	    
 	}

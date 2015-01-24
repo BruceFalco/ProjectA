@@ -4,12 +4,15 @@ import java.awt.event.KeyEvent;
 import java.util.*;
 
 public class Asteroid {
-    int x = 1000;
+    int x = 999+ randInt(0,350)  ;
     int xa = -1;
 
-    int y = 500-randInt(0,500);
+    int y = 500-randInt(30,520);
     private int w = 40 + randInt(0,10) - randInt(0,10);
     private int h = 40 + randInt(0,10) - randInt(0,10);
+
+    boolean flatt = false;
+    //when to disappear
 
     private Shooter shooter;
 
@@ -24,6 +27,7 @@ public class Asteroid {
     public void move() {
 	x = x + xa;
 	destroy();
+	setzip();
     }
 
     public Rectangle getBounds() {
@@ -39,6 +43,13 @@ public class Asteroid {
     private void destroy() {
 	if (shooter.spaceship.shieldup == false && shooter.spaceship.getBounds().intersects(getBounds())) {
 	    shooter.gameOver();
+	}
+    }
+
+    public void setzip() {
+	if (x < -25) {
+	    w=h=0;
+	    flatt =true;
 	}
     }
 

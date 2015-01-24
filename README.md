@@ -2,10 +2,25 @@ ProjectA
 ========
 Michael Mattson and Timon Luo
 
-This project consists of 3 games; Pong, Brickbreaker, and Drifter.
+This project consists of 3 games; Pong, Brickbreaker, and Asteroid Drifter.
  * Pong
-     is composed of classes Game2, Paddle2, Paddle3, and Ball2.  It is a two player game, with the object being to bounce the ball between paddles for as long as possible.  The top paddle is controlled by the left and right arrow keys, and the bottom is controlled with A and D.
+    An exciting, dashing classic game of Mini-Tennis, done APCS-style. Let 
+    your pupils paddle across your eyes as two players battle all-out for
+    ultimate victory on the virtual 2d tennis court of our APCS Project.
+    Consists of Game2, Paddle2, Paddle3, and Ball2 classes. Two player.
+    Top paddle controlled by left and right arrow keys.
+    Bottom paddle controlled with keys A and D.
+    Open with the command "java Game2" after compiling.
  * Brickbreaker
-     is composed of classes Game, Paddle, Ball, and Brick.  One player controls the paddle with the left and right arrows, and the object is to destroy the three randomly placed bricks on the screen.
- * Avoid the Asteroids! Control your ship with the arrow keys and avoid the asteroids coming from the right of the screen. Last as long as you can! Made of classes Spaceship.java and Asteroid.java
-    
+    The classic game of homework procrastination done APCS-style. Enjoy as you
+    paddle your way to supremacy. Move the paddle with the left and right
+    arrows and obliterate the randoly-placed bricks on the screen.
+    Consists of classes Game, Paddle, Ball, and Brick. 
+    Open with the command "java Game" after compiling.
+ * Asteroid Drifter
+    Driving through space on a Monday morning shouldn't be this deadly, but
+    it looks like traffic's especially pent-up today. Use the arrow keys and
+    navigate through the Asteroid Belt-Parkway on your first day to work at
+    the elite Spacesevant High School! Last as long as you can. Consists of
+    classes Spaceship.java and Asteroid.java.    
+    Open with the command "java Shooter" after compiling.
